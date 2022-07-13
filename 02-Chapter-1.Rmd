@@ -1,0 +1,34 @@
+# Chance Model
+
+## Coin Flipping Simulation
+```{r}
+# This code simulates the number of head obtained from flipping a coin 10 times. 
+resultContainer <- numeric(length=10)
+for (i in 1: 10){
+# in each trail, there are only two possible outcomes, 0 represents tail and 1 represents head. 
+  resultContainer[i] <- sample(0:1,1)
+}
+# Each value in the resultContainer represents result from flipping the coin each time, since one repetition contains 10 trails, there are 10 values in resultContainer. 
+resultContainer
+# sumHead represents the total number of head obtained from flipping the coin 10 times. 
+sumHead <- sum(resultContainer)
+sumHead
+```
+
+## Doris & Buzz Simulation
+```{r}
+# This code simulates the number of times Buzz guesses correctly out of 16 trials
+# BuzzGuess saves the result of Buzz guessing each time
+BuzzGuess <- numeric(length=10) # change 10 to 16 because there are 16 trials in each repetition
+for (i in 1: 10){ # change 10 to 16 for the same reason
+# in each trail, there are only two possible outcomes, 0 represents guessing wrong and 1 represents guessing correctly 
+  BuzzGuess[i] <- sample(0:1,1)
+}
+BuzzGuess
+sumGuess <- sum(BuzzGuess)
+# sumGuess gives the number of times Buzz guesses correctly. 
+sumGuess
+```
+
+
+

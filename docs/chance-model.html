@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Simulation Examples</title>
-  <meta name="description" content="Page not found | Simulation Examples" />
+  <title>Simulation Examples</title>
+  <meta name="description" content="Simulation Examples" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Simulation Examples" />
+  <meta property="og:title" content="Simulation Examples" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Simulation Examples" />
+  <meta name="twitter:title" content="Simulation Examples" />
   
   
   
@@ -31,7 +31,7 @@
   
   
 
-
+<link rel="next" href="a-caucus-race-and-a-long-tale.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -161,11 +161,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="header">
+<h1 class="title">Simulation Examples</h1>
+<p class="author"><em>Nannan Wang</em></p>
+<p class="date"><em>2022-07-13</em></p>
+</div>
+<div id="chance-model" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Chance Model<a href="chance-model.html#chance-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="coin-flipping-simulation" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Coin Flipping Simulation<a href="chance-model.html#coin-flipping-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chance-model.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code simulates the number of head obtained from flipping a coin 10 times. </span></span>
+<span id="cb1-2"><a href="chance-model.html#cb1-2" aria-hidden="true" tabindex="-1"></a>resultContainer <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="at">length=</span><span class="dv">10</span>)</span>
+<span id="cb1-3"><a href="chance-model.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span> <span class="dv">10</span>){</span>
+<span id="cb1-4"><a href="chance-model.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in each trail, there are only two possible outcomes, 0 represents tail and 1 represents head. </span></span>
+<span id="cb1-5"><a href="chance-model.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  resultContainer[i] <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb1-6"><a href="chance-model.html#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-7"><a href="chance-model.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Each value in the resultContainer represents result from flipping the coin each time, since one repetition contains 10 trails, there are 10 values in resultContainer. </span></span>
+<span id="cb1-8"><a href="chance-model.html#cb1-8" aria-hidden="true" tabindex="-1"></a>resultContainer</span></code></pre></div>
+<pre><code>##  [1] 1 0 1 0 1 0 0 1 1 1</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="chance-model.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sumHead represents the total number of head obtained from flipping the coin 10 times. </span></span>
+<span id="cb3-2"><a href="chance-model.html#cb3-2" aria-hidden="true" tabindex="-1"></a>sumHead <span class="ot">&lt;-</span> <span class="fu">sum</span>(resultContainer)</span>
+<span id="cb3-3"><a href="chance-model.html#cb3-3" aria-hidden="true" tabindex="-1"></a>sumHead</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="doris-buzz-simulation" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Doris &amp; Buzz Simulation<a href="chance-model.html#doris-buzz-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="chance-model.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code simulates the number of times Buzz guesses correctly out of 16 trials</span></span>
+<span id="cb5-2"><a href="chance-model.html#cb5-2" aria-hidden="true" tabindex="-1"></a>BuzzGuess <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="at">length=</span><span class="dv">10</span>) <span class="co"># change 10 to 16 because there are 16 trials in each repetition</span></span>
+<span id="cb5-3"><a href="chance-model.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span> <span class="dv">10</span>){ <span class="co"># change 10 to 16 for the same reason</span></span>
+<span id="cb5-4"><a href="chance-model.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in each trail, there are only two possible outcomes, 0 represents guessing wrong and 1 represents guessing correctly </span></span>
+<span id="cb5-5"><a href="chance-model.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  BuzzGuess[i] <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb5-6"><a href="chance-model.html#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-7"><a href="chance-model.html#cb5-7" aria-hidden="true" tabindex="-1"></a>BuzzGuess</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 0 0 1 1 0 1</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chance-model.html#cb7-1" aria-hidden="true" tabindex="-1"></a>sumGuess <span class="ot">&lt;-</span> <span class="fu">sum</span>(BuzzGuess)</span>
+<span id="cb7-2"><a href="chance-model.html#cb7-2" aria-hidden="true" tabindex="-1"></a>sumGuess</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+
+</div>
 </div>
             </section>
 
@@ -173,7 +206,7 @@ the table of contents to find the page you are looking for.</p>
         </div>
       </div>
 
-
+<a href="a-caucus-race-and-a-long-tale.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -204,7 +237,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/NannanW101/SimulationExample/edit/master/%s",
+"link": "https://github.com/NannanW101/SimulationExample/edit/master/02-Chapter-1.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -212,7 +245,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/NannanW101/SimulationExample/blob/master/%s",
+"link": "https://github.com/NannanW101/SimulationExample/blob/master/02-Chapter-1.Rmd",
 "text": null
 },
 "download": null,
