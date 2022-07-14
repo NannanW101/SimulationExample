@@ -178,20 +178,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-6"><a href="chance-model.html#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-7"><a href="chance-model.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Each value in the resultContainer represents result from flipping the coin each time, since one repetition contains 10 trails, there are 10 values in resultContainer. </span></span>
 <span id="cb1-8"><a href="chance-model.html#cb1-8" aria-hidden="true" tabindex="-1"></a>resultContainer</span></code></pre></div>
-<pre><code>##  [1] 1 0 1 1 1 0 0 0 0 0</code></pre>
+<pre><code>##  [1] 0 1 1 0 1 0 1 1 0 0</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="chance-model.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sumHead represents the total number of head obtained from flipping the coin 10 times. </span></span>
 <span id="cb3-2"><a href="chance-model.html#cb3-2" aria-hidden="true" tabindex="-1"></a>sumHead <span class="ot">&lt;-</span> <span class="fu">sum</span>(resultContainer)</span>
 <span id="cb3-3"><a href="chance-model.html#cb3-3" aria-hidden="true" tabindex="-1"></a>sumHead</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
+<pre><code>## [1] 5</code></pre>
 </div>
 <div id="doris-buzz-simulation" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> Doris &amp; Buzz Simulation<a href="chance-model.html#doris-buzz-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="chance-model.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># oneRep saves result of one repetion (16 trails). In each trial, outcome is 0 or 1. </span></span>
-<span id="cb5-2"><a href="chance-model.html#cb5-2" aria-hidden="true" tabindex="-1"></a>oneRep <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,<span class="dv">10</span>)</span>
+<span id="cb5-2"><a href="chance-model.html#cb5-2" aria-hidden="true" tabindex="-1"></a>oneRep <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,<span class="dv">16</span>)</span>
 <span id="cb5-3"><a href="chance-model.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># container saves result of all 100 replications.  </span></span>
 <span id="cb5-4"><a href="chance-model.html#cb5-4" aria-hidden="true" tabindex="-1"></a>container <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">replicate</span>(<span class="dv">100</span>,oneRep))</span>
 <span id="cb5-5"><a href="chance-model.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
-<span id="cb5-6"><a href="chance-model.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb5-6"><a href="chance-model.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>){</span>
 <span id="cb5-7"><a href="chance-model.html#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 0 stands for Buzz guessing wrong and 1 stands for Buzz guessing correctly. </span></span>
 <span id="cb5-8"><a href="chance-model.html#cb5-8" aria-hidden="true" tabindex="-1"></a>    container[i,j] <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
 <span id="cb5-9"><a href="chance-model.html#cb5-9" aria-hidden="true" tabindex="-1"></a>  }</span>
@@ -204,12 +204,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-16"><a href="chance-model.html#cb5-16" aria-hidden="true" tabindex="-1"></a>simulatedDisM <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(simulatedDis)</span>
 <span id="cb5-17"><a href="chance-model.html#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(simulatedDisM)</span></code></pre></div>
 <pre><code>##   repLabel dis100Rep
-## 1        1         5
-## 2        2         5
-## 3        3         6
-## 4        4         7
-## 5        5         5
-## 6        6         5</code></pre>
+## 1        1         6
+## 2        2        10
+## 3        3         9
+## 4        4         6
+## 5        5         8
+## 6        6         8</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chance-model.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the resulted dataframe in a dot plot. </span></span>
 <span id="cb7-2"><a href="chance-model.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb7-3"><a href="chance-model.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(simulatedDisM, <span class="fu">aes</span>(<span class="at">x =</span> dis100Rep)) <span class="sc">+</span></span>
@@ -218,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-6"><a href="chance-model.html#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(),  <span class="co">#remove y axis labels</span></span>
 <span id="cb7-7"><a href="chance-model.html#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>()  <span class="co">#remove y axis ticks</span></span>
 <span id="cb7-8"><a href="chance-model.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
-<span id="cb7-9"><a href="chance-model.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>))<span class="sc">+</span></span>
+<span id="cb7-9"><a href="chance-model.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>))<span class="sc">+</span></span>
 <span id="cb7-10"><a href="chance-model.html#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Number of Head&quot;</span>)</span></code></pre></div>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 

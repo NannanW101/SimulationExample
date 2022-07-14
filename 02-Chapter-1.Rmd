@@ -18,11 +18,11 @@ sumHead
 ## Doris & Buzz Simulation
 ```{r}
 # oneRep saves result of one repetion (16 trails). In each trial, outcome is 0 or 1. 
-oneRep <- rep(NA,10)
+oneRep <- rep(NA,16)
 # container saves result of all 100 replications.  
 container <- t(replicate(100,oneRep))
 for (i in 1:100) {
-  for (j in 1:10){
+  for (j in 1:16){
     # 0 stands for Buzz guessing wrong and 1 stands for Buzz guessing correctly. 
     container[i,j] <- sample(0:1,1)
   }
@@ -42,7 +42,7 @@ ggplot(simulatedDisM, aes(x = dis100Rep)) +
     axis.text.y=element_blank(),  #remove y axis labels
     axis.ticks.y=element_blank()  #remove y axis ticks
   )+
-  scale_x_continuous(breaks=c(1:10))+
+  scale_x_continuous(breaks=c(1:16))+
   labs(x="Number of Head")
 ```
 
