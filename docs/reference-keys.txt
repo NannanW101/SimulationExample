@@ -1,5 +1,6 @@
-chapter-1
-a-caucus-race-and-a-long-tale
 chance-model
 coin-flipping-simulation
 doris-buzz-simulation
+hypothesis-testing
+z-test
+t-test
