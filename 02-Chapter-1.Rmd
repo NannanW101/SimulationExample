@@ -2,7 +2,7 @@
 
 ## Coin Flipping Simulation
 ```{r}
-# This code simulates the number of head obtained from flipping a coin 10 times. 
+# The following code simulates the number of head obtained from flipping a coin 10 times. 
 resultContainer <- numeric(length=10)
 for (i in 1: 10){
 # in each trail, there are only two possible outcomes, 0 represents tail and 1 represents head. 
@@ -17,7 +17,7 @@ sumHead
 
 ## Doris & Buzz Simulation
 ```{r}
-# This code simulates the number of times Buzz guesses correctly out of 16 trials
+# The following code simulates the number of times Buzz guesses correctly out of 16 trials
 # BuzzGuess saves the result of Buzz guessing each time
 BuzzGuess <- numeric(length=10) # change 10 to 16 because there are 16 trials in each repetition
 for (i in 1: 10){ # change 10 to 16 for the same reason
@@ -26,7 +26,7 @@ for (i in 1: 10){ # change 10 to 16 for the same reason
 }
 BuzzGuess
 sumGuess <- sum(BuzzGuess)
-# sumGuess gives the number of times Buzz guesses correctly. 
+# sumGuess stands for the number of times Buzz guesses correctly. 
 sumGuess
 ```
 
