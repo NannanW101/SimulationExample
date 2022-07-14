@@ -17,17 +17,33 @@ sumHead
 
 ## Doris & Buzz Simulation
 ```{r}
-# The following code simulates the number of times Buzz guesses correctly out of 16 trials
-# BuzzGuess saves the result of Buzz guessing each time
-BuzzGuess <- numeric(length=10) # change 10 to 16 because there are 16 trials in each repetition
-for (i in 1: 10){ # change 10 to 16 for the same reason
-# in each trail, there are only two possible outcomes, 0 represents guessing wrong and 1 represents guessing correctly 
-  BuzzGuess[i] <- sample(0:1,1)
+# oneRep saves result of one repetion (16 trails). In each trial, outcome is 0 or 1. 
+oneRep <- rep(NA,10)
+# container saves result of all 100 replications.  
+container <- t(replicate(100,oneRep))
+for (i in 1:100) {
+  for (j in 1:10){
+    # 0 stands for Buzz guessing wrong and 1 stands for Buzz guessing correctly. 
+    container[i,j] <- sample(0:1,1)
+  }
 }
-BuzzGuess
-sumGuess <- sum(BuzzGuess)
-# sumGuess stands for the number of times Buzz guesses correctly. 
-sumGuess
+# calculate number of head in each replication and save the result in the dis100Rep vector
+dis100Rep <- rowSums(container)
+# create a dataframe "simulatedDisM" saving result for each repetition
+repLabel <- 1:100
+simulatedDis <- cbind(repLabel,dis100Rep)
+simulatedDisM <- as.data.frame(simulatedDis)
+head(simulatedDisM)
+# plot the resulted dataframe in a dot plot. 
+library(ggplot2)
+ggplot(simulatedDisM, aes(x = dis100Rep)) +
+  geom_dotplot(method="histodot",binwidth = 0.2)+
+  theme(
+    axis.text.y=element_blank(),  #remove y axis labels
+    axis.ticks.y=element_blank()  #remove y axis ticks
+  )+
+  scale_x_continuous(breaks=c(1:10))+
+  labs(x="Number of Head")
 ```
 
 
